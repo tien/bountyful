@@ -9,7 +9,7 @@ type DescriptionProps = {
 
 export const Description = (props: DescriptionProps) => (
   <div>
-    <Text as="label" className={css({ display: "inline", fontWeight: 500 })}>
+    <Text as="label" className={css({ display: "inline", fontWeight: 600 })}>
       {props.term}:{" "}
     </Text>
     <Text as="span">{props.details}</Text>

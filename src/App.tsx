@@ -95,100 +95,141 @@ const BountyCard = (props: BountyProps) => {
   return (
     <article className={css({ display: "contents" })}>
       <Card.Root>
-        <Card.Header>
-          <Card.Title>Bounty #{props.number}</Card.Title>
-          <Card.Description>{description?.asText()}</Card.Description>
-        </Card.Header>
-        <Card.Body>
-          <div
+        <Collapsible.Root>
+          <Collapsible.Trigger
             className={css({
-              display: "flex",
-              gap: "1rem",
-              marginBottom: "1rem",
+              textAlign: "start",
+              width: "100%",
+              cursor: "pointer",
             })}
           >
-            <AccountListItem label="Proposer" address={props.proposer} />
-            {(props.status.type === "Active" ||
-              props.status.type === "CuratorProposed" ||
-              props.status.type === "PendingPayout") && (
-              <AccountListItem
-                label="Curator"
-                address={props.status.value.curator}
+            <Card.Header
+              className={css({
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "0.5rem",
+              })}
+            >
+              <div>
+                <Card.Title>
+                  Bounty #{props.number}{" "}
+                  {childBounties.length > 0 ? (
+                    <>
+                      ({childBounties.length} child{" "}
+                      {childBounties.length === 1 ? "bounty" : "bounties"})
+                    </>
+                  ) : null}
+                </Card.Title>
+                <Card.Description>{description?.asText()}</Card.Description>
+              </div>
+              <Collapsible.Context>
+                {({ open }) =>
+                  open ? (
+                    <ChevronUp fill="currentcolor" />
+                  ) : (
+                    <ChevronDown fill="currentcolor" />
+                  )
+                }
+              </Collapsible.Context>
+            </Card.Header>
+          </Collapsible.Trigger>
+          <Collapsible.Content>
+            <Card.Body>
+              <div
+                className={css({
+                  display: "flex",
+                  gap: "1rem",
+                  marginBottom: "1rem",
+                })}
+              >
+                <AccountListItem label="Proposer" address={props.proposer} />
+                {(props.status.type === "Active" ||
+                  props.status.type === "CuratorProposed" ||
+                  props.status.type === "PendingPayout") && (
+                  <AccountListItem
+                    label="Curator"
+                    address={props.status.value.curator}
+                  />
+                )}
+              </div>
+              <Description term="Status" details={props.status.type} />
+              <Description
+                term="Value"
+                details={useNativeTokenNumberWithPlanck(
+                  props.value,
+                ).toLocaleString()}
               />
-            )}
-          </div>
-          <Description term="Status" details={props.status.type} />
-          <Description
-            term="Value"
-            details={useNativeTokenNumberWithPlanck(
-              props.value,
-            ).toLocaleString()}
-          />
-          <Description
-            term="Bond"
-            details={useNativeTokenNumberWithPlanck(
-              props.bond,
-            ).toLocaleString()}
-          />
-          <Description
-            term="Fee"
-            details={useNativeTokenNumberWithPlanck(props.fee).toLocaleString()}
-          />
-          <Description
-            term="Curator deposit"
-            details={useNativeTokenNumberWithPlanck(
-              props.curator_deposit,
-            ).toLocaleString()}
-          />
-          {childBounties.length > 0 && (
-            <section>
-              <Collapsible.Root>
-                <Collapsible.Trigger>
-                  <Button className={css({ margin: "1rem 0" })}>
-                    <header>
-                      <Heading as="h4" size="lg">
-                        Child bounties {childBounties.length}
-                      </Heading>
-                    </header>
-                    <Collapsible.Context>
-                      {({ open }) =>
-                        open ? (
-                          <ChevronUp fill="currentcolor" />
-                        ) : (
-                          <ChevronDown fill="currentcolor" />
-                        )
-                      }
-                    </Collapsible.Context>
-                  </Button>
-                </Collapsible.Trigger>
-                <Collapsible.Content
-                  className={css({
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "1rem",
-                  })}
-                >
-                  {childBounties.map(
-                    ({
-                      keyArgs: [_, childBountyNumber],
-                      value: childBounty,
-                    }) => (
-                      <Suspense
-                        key={childBountyNumber}
-                        fallback={<Progress value={null} />}
-                      >
-                        <ChildBounty
-                          number={childBountyNumber}
-                          {...childBounty}
-                        />
-                      </Suspense>
-                    ),
-                  )}
-                </Collapsible.Content>
-              </Collapsible.Root>
-            </section>
-          )}
-        </Card.Body>
+              <Description
+                term="Bond"
+                details={useNativeTokenNumberWithPlanck(
+                  props.bond,
+                ).toLocaleString()}
+              />
+              <Description
+                term="Fee"
+                details={useNativeTokenNumberWithPlanck(
+                  props.fee,
+                ).toLocaleString()}
+              />
+              <Description
+                term="Curator deposit"
+                details={useNativeTokenNumberWithPlanck(
+                  props.curator_deposit,
+                ).toLocaleString()}
+              />
+              {childBounties.length > 0 && (
+                <section>
+                  <Collapsible.Root>
+                    <Collapsible.Trigger>
+                      <Button className={css({ margin: "1rem 0" })}>
+                        <header>
+                          <Heading as="h4" size="lg">
+                            Child bounties {childBounties.length}
+                          </Heading>
+                        </header>
+                        <Collapsible.Context>
+                          {({ open }) =>
+                            open ? (
+                              <ChevronUp fill="currentcolor" />
+                            ) : (
+                              <ChevronDown fill="currentcolor" />
+                            )
+                          }
+                        </Collapsible.Context>
+                      </Button>
+                    </Collapsible.Trigger>
+                    <Collapsible.Content
+                      className={css({
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "1rem",
+                      })}
+                    >
+                      {childBounties.map(
+                        ({
+                          keyArgs: [_, childBountyNumber],
+                          value: childBounty,
+                        }) => (
+                          <Suspense
+                            key={childBountyNumber}
+                            fallback={<Progress value={null} />}
+                          >
+                            <ChildBounty
+                              number={childBountyNumber}
+                              {...childBounty}
+                            />
+                          </Suspense>
+                        ),
+                      )}
+                    </Collapsible.Content>
+                  </Collapsible.Root>
+                </section>
+              )}
+            </Card.Body>
+          </Collapsible.Content>
+        </Collapsible.Root>
       </Card.Root>
     </article>
   );
@@ -201,9 +242,13 @@ const DApp = () => {
 
   return (
     <main>
-      <header>
-        <Heading as="h1" size="7xl" className={css({ textAlign: "center" })}>
-          Bounties
+      <header className={css({ textAlign: "center" })}>
+        <Heading as="h1" size="7xl">
+          Bountyful
+        </Heading>
+        <Heading as="h2" size="xl">
+          There are currently {bounties.length} active{" "}
+          {bounties.length === 1 ? "bounty" : "bounties"}
         </Heading>
       </header>
       <section
