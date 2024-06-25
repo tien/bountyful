@@ -47,5 +47,9 @@
     "typescript": "^5.5.2",
     "typescript-eslint": "^7.14.1",
     "vite": "^5.3.1"
+  },
+  "resolutions": {
+    "@polkadot-api/metadata-builders@npm:0.3.0": "patch:@polkadot-api/metadata-builders@npm%3A0.3.0#~/.yarn/patches/@polkadot-api-metadata-builders-npm-0.3.0-786deaefc1.patch",
+    "@polkadot-api/metadata-builders@npm:0.0.1": "patch:@polkadot-api/metadata-builders@npm%3A0.3.0#~/.yarn/patches/@polkadot-api-metadata-builders-npm-0.3.0-786deaefc1.patch"
   }
 }

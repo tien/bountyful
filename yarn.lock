@@ -1572,16 +1572,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot-api/metadata-builders@npm:0.0.1":
-  version: 0.0.1
-  resolution: "@polkadot-api/metadata-builders@npm:0.0.1"
-  dependencies:
-    "@polkadot-api/substrate-bindings": "npm:0.0.1"
-    "@polkadot-api/utils": "npm:0.0.1"
-  checksum: 10c0/15cee1c05f61f324a72a8e81540297ffccd532d477233868cc6c8ef9c47ac6bcb174c686b2cb41336304d54b9b7a5cb1396cc482b97b78c1671c7316dad27839
-  languageName: node
-  linkType: hard
-
 "@polkadot-api/metadata-builders@npm:0.3.0":
   version: 0.3.0
   resolution: "@polkadot-api/metadata-builders@npm:0.3.0"
@@ -1589,6 +1579,16 @@ __metadata:
     "@polkadot-api/substrate-bindings": "npm:0.4.0"
     "@polkadot-api/utils": "npm:0.0.1"
   checksum: 10c0/83c2295265864b8453edb8f9badfd99b39496fe3003c444eee013ff5930b369c684485bcd4872aac2830484787e612cbf7adb94d821e189f301d487bf08cae46
+  languageName: node
+  linkType: hard
+
+"@polkadot-api/metadata-builders@patch:@polkadot-api/metadata-builders@npm%3A0.3.0#~/.yarn/patches/@polkadot-api-metadata-builders-npm-0.3.0-786deaefc1.patch":
+  version: 0.3.0
+  resolution: "@polkadot-api/metadata-builders@patch:@polkadot-api/metadata-builders@npm%3A0.3.0#~/.yarn/patches/@polkadot-api-metadata-builders-npm-0.3.0-786deaefc1.patch::version=0.3.0&hash=3a537f"
+  dependencies:
+    "@polkadot-api/substrate-bindings": "npm:0.4.0"
+    "@polkadot-api/utils": "npm:0.0.1"
+  checksum: 10c0/0d3fb7a7d0ecb17b566b22f618168926d6d7719ec0790890dd32a4092d801915d8fea629c77da5c58d9e77cc9a47f387f7a3ea3c290010eb6526351c22f4734c
   languageName: node
   linkType: hard
 

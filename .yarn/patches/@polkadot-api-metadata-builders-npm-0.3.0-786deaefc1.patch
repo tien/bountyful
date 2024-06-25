@@ -1,0 +1,72 @@
+diff --git a/dist/index.js b/dist/index.js
+index 3a519afd76bce2539585ba63af378494f28ed43a..29c14b1300943623e34f4f7fc106ebb8c45bb64e 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -386,12 +386,25 @@ var getDynamicBuilder = (metadata) => {
+     const { key, value, hashers } = storageEntry.type.value;
+     const val = buildDefinition(value);
+     const hashes = hashers.map((x) => scale[x.tag]);
+-    const hashArgs = hashes.length === 1 ? [[buildDefinition(key), hashes[0]]] : getLookupEntryDef(key).value.map(
+-      (x, idx) => [
+-        buildDefinition(x.id),
+-        hashes[idx]
+-      ]
+-    );
++    const hashArgs = (() => {
++      if (hashes.length === 1) {
++        return [[buildDefinition(key), hashes[0]]]
++      }
++
++      const keyDef = getLookupEntryDef(key)
++
++      switch (keyDef.type) {
++        case "array":
++          return hashes.map((hash) => [buildDefinition(keyDef.value.id), hash])
++        case "tuple":
++          return keyDef.value.map((x, idx) => [
++            buildDefinition(x.id),
++            hashes[idx],
++          ])
++        default:
++          throw new Error("Invalid key type")
++      }
++    })()
+     return storageWithFallback(hashes.length, entry, val.dec, ...hashArgs);
+   };
+   const buildEnumEntry = (entry) => {
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 4110ee970e1bf18a9dff9d62186ddae6fd1aeb0e..96f726671fba47fbc40c1a413f954b12e04844d7 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -348,12 +348,25 @@ var getDynamicBuilder = (metadata) => {
+     const { key, value, hashers } = storageEntry.type.value;
+     const val = buildDefinition(value);
+     const hashes = hashers.map((x) => scale[x.tag]);
+-    const hashArgs = hashes.length === 1 ? [[buildDefinition(key), hashes[0]]] : getLookupEntryDef(key).value.map(
+-      (x, idx) => [
+-        buildDefinition(x.id),
+-        hashes[idx]
+-      ]
+-    );
++    const hashArgs = (() => {
++      if (hashes.length === 1) {
++        return [[buildDefinition(key), hashes[0]]]
++      }
++
++      const keyDef = getLookupEntryDef(key)
++
++      switch (keyDef.type) {
++        case "array":
++          return hashes.map((hash) => [buildDefinition(keyDef.value.id), hash])
++        case "tuple":
++          return keyDef.value.map((x, idx) => [
++            buildDefinition(x.id),
++            hashes[idx],
++          ])
++        default:
++          throw new Error("Invalid key type")
++      }
++    })()
+     return storageWithFallback(hashes.length, entry, val.dec, ...hashArgs);
+   };
+   const buildEnumEntry = (entry) => {
