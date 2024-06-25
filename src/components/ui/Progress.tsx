@@ -1,10 +1,10 @@
-import { css, cx } from "../../styled-system/css";
-import { splitCssProps } from "../../styled-system/jsx";
+import { css, cx } from "../../../styled-system/css";
+import { splitCssProps } from "../../../styled-system/jsx";
 import {
   type ProgressVariantProps,
   progress,
-} from "../../styled-system/recipes";
-import type { JsxStyleProps } from "../../styled-system/types";
+} from "../../../styled-system/recipes";
+import type { JsxStyleProps } from "../../../styled-system/types";
 import type { Assign } from "@ark-ui/react";
 import {
   Progress as ArkProgress,
