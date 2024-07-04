@@ -8,22 +8,24 @@ type ListItemProps = {
   supportingContent?: ReactNode;
 };
 
-export const ListItem = (props: ListItemProps) => (
-  <article
-    className={css({ display: "flex", alignItems: "center", gap: "0.5rem" })}
-  >
-    {props.leadingContent && (
-      <div className={css({ width: "2rem", height: "2rem" })}>
-        {props.leadingContent}
-      </div>
-    )}
-    <div>
-      {props.overlineContent && (
-        <div className={css({ fontWeight: "bold" })}>
-          {props.overlineContent}
+export function ListItem(props: ListItemProps) {
+  return (
+    <article
+      className={css({ display: "flex", alignItems: "center", gap: "0.5rem" })}
+    >
+      {props.leadingContent && (
+        <div className={css({ width: "2rem", height: "2rem" })}>
+          {props.leadingContent}
         </div>
       )}
-      <div>{props.headlineContent}</div>
-    </div>
-  </article>
-);
+      <div>
+        {props.overlineContent && (
+          <div className={css({ fontWeight: "bold" })}>
+            {props.overlineContent}
+          </div>
+        )}
+        <div>{props.headlineContent}</div>
+      </div>
+    </article>
+  );
+}

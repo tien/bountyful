@@ -6,11 +6,11 @@ type IdenticonProps = {
   size?: string | number;
 };
 
-const renderCircle = ({ cx, cy, fill, r }: Circle, key: number) => {
+function renderCircle({ cx, cy, fill, r }: Circle, key: number) {
   return <circle cx={cx} cy={cy} fill={fill} key={key} r={r} />;
-};
+}
 
-const Identicon = (props: IdenticonProps) => {
+export default function Identicon(props: IdenticonProps) {
   const circles = useMemo(() => polkadotIcon(props.address), [props.address]);
 
   return (
@@ -23,6 +23,4 @@ const Identicon = (props: IdenticonProps) => {
       {circles.map(renderCircle)}
     </svg>
   );
-};
-
-export default Identicon;
+}

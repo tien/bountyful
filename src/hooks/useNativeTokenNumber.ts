@@ -1,7 +1,7 @@
 import { useChainSpecData } from "@reactive-dot/react";
 import { DenominatedNumber } from "@reactive-dot/utils";
 
-export const useNativeTokenNumberWithPlanck = (planck: bigint) => {
+export function useNativeTokenNumberWithPlanck(planck: bigint) {
   const chainSpecData = useChainSpecData();
 
   return new DenominatedNumber(
@@ -9,4 +9,4 @@ export const useNativeTokenNumberWithPlanck = (planck: bigint) => {
     chainSpecData.properties.tokenDecimals,
     chainSpecData.properties.tokenSymbol,
   );
-};
+}

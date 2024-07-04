@@ -7,11 +7,13 @@ type DescriptionProps = {
   details: ReactNode;
 };
 
-export const Description = (props: DescriptionProps) => (
-  <div>
-    <Text as="label" className={css({ display: "inline", fontWeight: 600 })}>
-      {props.term}:{" "}
-    </Text>
-    <Text as="span">{props.details}</Text>
-  </div>
-);
+export function Description(props: DescriptionProps) {
+  return (
+    <div>
+      <Text as="label" className={css({ display: "inline", fontWeight: 600 })}>
+        {props.term}:{" "}
+      </Text>
+      <Text as="span">{props.details}</Text>
+    </div>
+  );
+}

@@ -32,7 +32,7 @@ type ChildBountyProps = {
   parent_bounty: number;
 };
 
-const ChildBounty = (props: ChildBountyProps) => {
+function ChildBounty(props: ChildBountyProps) {
   const description = useLazyLoadQuery((builder) =>
     builder.readStorage("ChildBounties", "ChildBountyDescriptions", [
       props.number,
@@ -72,7 +72,7 @@ const ChildBounty = (props: ChildBountyProps) => {
       />
     </article>
   );
-};
+}
 
 type BountyProps = {
   number: number;
@@ -84,7 +84,7 @@ type BountyProps = {
   status: BountiesBountyStatus;
 };
 
-const BountyCard = (props: BountyProps) => {
+function BountyCard(props: BountyProps) {
   const [description, childBounties] = useLazyLoadQuery((builder) =>
     builder
       .readStorage("Bounties", "BountyDescriptions", [props.number])
@@ -233,9 +233,9 @@ const BountyCard = (props: BountyProps) => {
       </Card.Root>
     </article>
   );
-};
+}
 
-const DApp = () => {
+function DApp() {
   const bounties = useLazyLoadQuery((builder) =>
     builder.readStorageEntries("Bounties", "Bounties", []),
   );
@@ -276,9 +276,9 @@ const DApp = () => {
       </section>
     </main>
   );
-};
+}
 
-const App = () => {
+export default function App() {
   return (
     <ReDotProvider config={config}>
       <ReDotChainProvider chainId="polkadot">
@@ -302,6 +302,4 @@ const App = () => {
       </ReDotChainProvider>
     </ReDotProvider>
   );
-};
-
-export default App;
+}
