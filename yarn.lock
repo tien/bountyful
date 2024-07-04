@@ -1759,11 +1759,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reactive-dot/core@npm:0.0.0-snapshot.f9e555e":
-  version: 0.0.0-snapshot.f9e555e
-  resolution: "@reactive-dot/core@npm:0.0.0-snapshot.f9e555e"
+"@reactive-dot/core@npm:0.0.0-snapshot.f14bea3":
+  version: 0.0.0-snapshot.f14bea3
+  resolution: "@reactive-dot/core@npm:0.0.0-snapshot.f14bea3"
   dependencies:
-    "@reactive-dot/utils": "npm:0.0.0-snapshot.f9e555e"
+    "@reactive-dot/utils": "npm:0.0.0-snapshot.f14bea3"
   peerDependencies:
     "@walletconnect/modal": 2.x
     "@walletconnect/universal-provider": 2.x
@@ -1773,25 +1773,25 @@ __metadata:
       optional: true
     "@walletconnect/universal-provider":
       optional: true
-  checksum: 10c0/e1a1bea1362d25260530947c6cf6a634181f5a739dd53c5bac6b5eb1d184a0c18414f9e8d6296c4cd6dd9a0933cc274fe10776092aef289ef502417728c6db34
+  checksum: 10c0/f49dc66a9c2e9753c9d5c2b09f5bc5d2e9167c5a9e58e217384c0fc54bd562bfae45c2e4ba17687f49325d64f895eb683ebfb47512c95813fdda53b2e20cfa65
   languageName: node
   linkType: hard
 
-"@reactive-dot/react@npm:0.0.0-snapshot.f9e555e":
-  version: 0.0.0-snapshot.f9e555e
-  resolution: "@reactive-dot/react@npm:0.0.0-snapshot.f9e555e"
+"@reactive-dot/react@npm:0.0.0-snapshot.f14bea3":
+  version: 0.0.0-snapshot.f14bea3
+  resolution: "@reactive-dot/react@npm:0.0.0-snapshot.f14bea3"
   dependencies:
-    "@reactive-dot/core": "npm:0.0.0-snapshot.f9e555e"
-    jotai: "npm:^2.8.3"
+    "@reactive-dot/core": "npm:0.0.0-snapshot.f14bea3"
+    jotai: "npm:^2.8.4"
     jotai-scope: "npm:^0.6.0"
-  checksum: 10c0/f7515ee784df262566bc923c16440a4bb61682c54c2f6bfc9914a3e0be425e92eb5754ea021c9ad7587893d5c1860d8c5db3a431c35b252b41398a94b1daf4f2
+  checksum: 10c0/075e511e23ccc43ea6d06eabef70b2599a52ae82d68d664121f0d53792e45f866e5b73a1b92d244dd971f7d471fb32295442346cacbe9e0b782170d489d69e0b
   languageName: node
   linkType: hard
 
-"@reactive-dot/utils@npm:0.0.0-snapshot.f9e555e":
-  version: 0.0.0-snapshot.f9e555e
-  resolution: "@reactive-dot/utils@npm:0.0.0-snapshot.f9e555e"
-  checksum: 10c0/7b52ebc4d5a88fa1af3255b94d81857cb200bce161bb898027e10880452e6f8d9aefdeaac5e4babee559ae4144ac842d8e21e8a1bad216136903a7a2f338a245
+"@reactive-dot/utils@npm:0.0.0-snapshot.f14bea3":
+  version: 0.0.0-snapshot.f14bea3
+  resolution: "@reactive-dot/utils@npm:0.0.0-snapshot.f14bea3"
+  checksum: 10c0/ca2b957f0935af919080ad7ad19832814e3ae4ff6c7ad10e12cdadf9ca841a4ac12d81b9cb11c9744017aa0451268540c2fc2b470d8bdd7b47cae21af8635cef
   languageName: node
   linkType: hard
 
@@ -3936,7 +3936,7 @@ __metadata:
     "@noble/hashes": "npm:^1.4.0"
     "@pandacss/dev": "npm:^0.41.0"
     "@park-ui/panda-preset": "npm:^0.38.0"
-    "@reactive-dot/react": "npm:0.0.0-snapshot.f9e555e"
+    "@reactive-dot/react": "npm:0.0.0-snapshot.f14bea3"
     "@trivago/prettier-plugin-sort-imports": "npm:^4.3.0"
     "@tsconfig/node-lts": "npm:^20.1.3"
     "@tsconfig/vite-react": "npm:^3.0.2"
@@ -5534,9 +5534,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai@npm:^2.8.3":
-  version: 2.8.3
-  resolution: "jotai@npm:2.8.3"
+"jotai@npm:^2.8.4":
+  version: 2.8.4
+  resolution: "jotai@npm:2.8.4"
   peerDependencies:
     "@types/react": ">=17.0.0"
     react: ">=17.0.0"
@@ -5545,7 +5545,7 @@ __metadata:
       optional: true
     react:
       optional: true
-  checksum: 10c0/86a2fee4b1ed1fd6f1a1b6ee54e3596371c28122ecd9b70c3801690156010b3ecfb71821c14d21fc64fee11ff70b57205cc61a82cd33a8c6a1992033d0ddd59b
+  checksum: 10c0/32bd3a41ea9de2f1a17dc179707a37d4c470a44973d8e48dbc8d5284fbf6333b678a203b10216049ab7e62ca34465cf3c765f64ed54cb0ef470246309415ff0f
   languageName: node
   linkType: hard
 

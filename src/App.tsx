@@ -247,7 +247,7 @@ const DApp = () => {
           Bountyful
         </Heading>
         <Heading as="h2" size="xl">
-          There are currently {bounties.length} active{" "}
+          There are currently {bounties.length}{" "}
           {bounties.length === 1 ? "bounty" : "bounties"}
         </Heading>
       </header>
