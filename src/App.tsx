@@ -156,18 +156,27 @@ function BountyCard(props: BountyProps) {
               </div>
               <Description term="Status" details={props.status.type} />
               <Description
+                className={css({
+                  display: props.value === 0n ? "none" : undefined,
+                })}
                 term="Value"
                 details={useNativeTokenNumberWithPlanck(
                   props.value,
                 ).toLocaleString()}
               />
               <Description
+                className={css({
+                  display: props.bond === 0n ? "none" : undefined,
+                })}
                 term="Bond"
                 details={useNativeTokenNumberWithPlanck(
                   props.bond,
                 ).toLocaleString()}
               />
               <Description
+                className={css({
+                  display: props.fee === 0n ? "none" : undefined,
+                })}
                 term="Fee"
                 details={useNativeTokenNumberWithPlanck(
                   props.fee,
@@ -175,6 +184,9 @@ function BountyCard(props: BountyProps) {
               />
               <Description
                 term="Curator deposit"
+                className={css({
+                  display: props.curator_deposit === 0n ? "none" : undefined,
+                })}
                 details={useNativeTokenNumberWithPlanck(
                   props.curator_deposit,
                 ).toLocaleString()}
