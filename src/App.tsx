@@ -88,7 +88,6 @@ function BountyCard(props: BountyProps) {
   const [description, childBounties] = useLazyLoadQuery((builder) =>
     builder
       .readStorage("Bounties", "BountyDescriptions", [props.number])
-      // @ts-expect-error: Error from Polkadot-API
       .readStorageEntries("ChildBounties", "ChildBounties", [props.number]),
   );
 
